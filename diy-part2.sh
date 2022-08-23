@@ -21,6 +21,9 @@ rm feeds/luci/themes/luci-theme-argon -rf
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
 
+# 修正lxc下使用连接数显示
+sed -i 's/net.nf_conntrack_max/net.netfilter.nf_conntrack_max/' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+
 git clone https://github.com/linkease/istore.git package/istore
 #sirpdboy
 #git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd

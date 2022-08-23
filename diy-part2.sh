@@ -14,11 +14,11 @@
 sed -i 's/192.168.1.1/192.168.1.5/g' package/base-files/files/bin/config_generate
 
 #2. Clear the login password
-sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package/lean/default-settings/files/zzz-default-settings
 
 #3. Replace with JerryKuKu’s Argon
-rm openwrt/package/lean/luci-theme-argon -rf
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+rm feeds/luci/themes/luci-theme-argon -rf
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
 
 git clone https://github.com/linkease/istore.git package/istore

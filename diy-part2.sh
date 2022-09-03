@@ -25,7 +25,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Ma
 sed -i 's/net.nf_conntrack_max/net.netfilter.nf_conntrack_max/' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 
 # 修正lxc下使用网络接口显示
-sed -i '/^a=/ca=$(ip address | grep ^[0-9] | awk -F: '{print \$2}' | sed "s/ //g" | grep '^eth' | awk -F"@" '{print \$1}')' package/lean/autocore/files/x86/sbin/ethinfo
+sed -i '/^a=/ca=$(ip address | grep ^[0-9] | awk -F: '"'"'{print $2}'"'"' | sed "s/ //g" | grep '"'"'^eth'"'"' | awk -F"@" '"'"'{print $1}'"'"')' package/lean/autocore/files/x86/sbin/ethinfo
 
 git clone https://github.com/linkease/istore.git package/istore
 #sirpdboy

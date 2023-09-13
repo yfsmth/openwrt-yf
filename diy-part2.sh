@@ -53,8 +53,8 @@ git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dns
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 # istore
-echo >> feeds.conf.default
-echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
-./scripts/feeds update istore
-./scripts/feeds install -d y -p istore luci-app-store
+#echo >> feeds.conf.default
+#echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+#./scripts/feeds update istore
+#./scripts/feeds install -d y -p istore luci-app-store
 

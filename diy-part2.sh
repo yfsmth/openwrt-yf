@@ -27,7 +27,6 @@ sed -i 's/net.nf_conntrack_max/net.netfilter.nf_conntrack_max/' feeds/luci/modul
 # 修正lxc下使用网络接口显示
 sed -i '/^a=/ca=$(ip address | grep ^[0-9] | awk -F: '"'"'{print $2}'"'"' | sed "s/ //g" | grep '"'"'^eth'"'"' | awk -F"@" '"'"'{print $1}'"'"')' package/lean/autocore/files/x86/sbin/ethinfo
 
-git clone https://github.com/linkease/istore.git package/istore
 #sirpdboy
 #git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
@@ -48,9 +47,14 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
 
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-
 #git clone https://github.com/kenzok8/openwrt-packages.git package/openwrt-packages
 
 #添加额外非必须软件包
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
-git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+
+# istore
+echo >> feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+./scripts/feeds update istore
+./scripts/feeds install -d y -p istore luci-app-store
+
